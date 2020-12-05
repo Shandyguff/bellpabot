@@ -20,18 +20,19 @@ begin
 
     t = Time.now
     if t.hour <= 12
-        timing = "morning"
+        content = "costume.json"
     else
-        timing = "night"
+        content = "adult_item.json"
     end
 
     text = String.new
     img = Array.new
 
-    File.open("content.json") do |file|
+    File.open(content) do |file|
         hash = JSON.load(file)
         #imgs = hash["day19morning"].values
-        img = hash["day#{t.day}#{timing}"].values
+        #img = hash["day#{t.day}#{timing}"].values
+        img = hash[rand(1..10).to_s].values
     end
 
     text = img[0]
