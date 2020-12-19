@@ -32,7 +32,7 @@ begin
         hash = JSON.load(file)
         #imgs = hash["day19morning"].values
         #img = hash["day#{t.day}#{timing}"].values
-        img = hash[rand(1..24).to_s].values
+        img = hash[rand(1..31).to_s].values
     end
 
     text = img[0]
