@@ -19,6 +19,7 @@ begin
     end
 
     t = Time.now
+    d = t.day
     if t.hour <= 12
         content = "costume.json"
     else
@@ -31,8 +32,8 @@ begin
     File.open(content) do |file|
         hash = JSON.load(file)
         #imgs = hash["day19morning"].values
-        #img = hash["day#{t.day}#{timing}"].values
-        img = hash[rand(1..31).to_s].values
+        img = hash[d.to_s].values
+        #img = hash[rand(1..31).to_s].values
     end
 
     text = img[0]
